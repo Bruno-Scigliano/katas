@@ -20,7 +20,9 @@
   "Escribir una funcion que cree una lista de enteros en un rango dado.
    Restricciones: range"
   [start end]
-  )
+  ((fn rec [list end cont] (if(> cont end)
+                             list
+                             (rec (conj list cont) end (+ 1 cont)))) [] end start))
 
 (defn compress-sequence
   "Escribir una funcion que elimine los duplicados consecutivos
