@@ -24,6 +24,7 @@
                              list
                              (rec (conj list cont) end (+ 1 cont)))) [] end start))
 
+							 
 (defn compress-sequence
   "Escribir una funcion que elimine los duplicados consecutivos
    de una secuencia"
@@ -60,6 +61,9 @@
    solamente si alguno de los parametros son true, pero no todos son true. En otro
    caso debera retornar false"
   [& xs]
+    (if (and (some true? xs) (some false? xs))
+  true
+  false)
   )
 
 (defn zip-map
