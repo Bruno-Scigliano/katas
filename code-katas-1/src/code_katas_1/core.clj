@@ -48,6 +48,13 @@
    luego el segundo de cada una, luego el tercero, etc.
    Restricciones: interleave"
   [s1 s2]
+  ((fn rec [list newList] (if (empty? list)
+                            newList
+                            (rec (rest list)(concat newList  (first list))))
+     )
+                                  (for [i (range 0 (count s1)) :when (not (or(nil?(get s1 i)) (nil?(get s2 i))))]
+                                    [(nth s1 i) (nth s2 i)]) [] 
+                                  )
   )
 
 (defn retrieve-caps
@@ -55,7 +62,6 @@
    solamente las mayusculas."
   [text]
   (clojure.string/join (for [i text :when (= (clojure.string/upper-case i) (str i))](str i)))
-  
   )
 
 (defn find-truth
