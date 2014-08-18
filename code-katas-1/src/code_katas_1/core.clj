@@ -35,7 +35,17 @@
   "Escribir una funcion que reciba un numero variable de parametros
    y retorne el que tenga el valor mayor
    Restricciones: max y max-key"
-  [& args])
+  [& args]
+  ((fn rec [list]
+     (if (= (count list) 2)
+                   (if (< (first list) (second list))
+                                              (second list)
+                                              (first list))
+                   (if (< (first list) (second list))
+                     (rec (rest list))
+                     (rec (concat [(first list)] (rest(rest list))))     
+                 )))args)
+  )
 
 (defn split-two
   "Escribir una funcion que parta una secuencia en dos partes
