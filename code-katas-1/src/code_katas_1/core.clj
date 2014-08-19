@@ -11,10 +11,10 @@
   "Escribir una funcion que dada una clave y un mapa, devuelva true, solamente si el mapa
    contiene una entrada con esa clave, y su valor es nil"
   [k m]
-  (if (not (empty? (for [i (keys m) :when (nil? (get m i))] true)))
+  (if (not (empty? (for [i (keys m) :when (and (nil? (get m i)) (= k i))] true)))
     true
     false)
-)
+  )
 
 (defn range
   "Escribir una funcion que cree una lista de enteros en un rango dado.
