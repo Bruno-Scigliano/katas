@@ -29,7 +29,8 @@
   "Escribir una funcion que elimine los duplicados consecutivos
    de una secuencia"
   [s]
-  )
+  (for [i (range 0 (count s)) :when (if (= i 0) true (not=(nth s i)(nth s (dec i))))]  (nth s i))
+)
 
 (defn max-value
   "Escribir una funcion que reciba un numero variable de parametros
