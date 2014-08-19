@@ -89,4 +89,6 @@
    construya un mapa a partir de ellos.
    Restricciones: zipmap"
   [k v]
-  )
+   ((fn maprec [mapa k2 v2](if (and (empty? k2) (empty? v2)) mapa 
+                             (maprec (assoc mapa (first k2) (first v2)) (rest k2) (rest v2))))
+     {} (if (> (count k)(count v))(rest(reverse k)) (reverse k)) (if (< (count k) (count v)) (rest(reverse v)) (reverse v)))) 
