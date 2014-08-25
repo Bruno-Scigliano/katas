@@ -60,7 +60,7 @@
   "Escribir una funcion que reciba un string y devuelva un nuevo string conteniendo
    solamente las mayusculas."
   [text]
-  (clojure.string/join (for [i text:when (and (= (clojure.string/upper-case i) (str i)) (java.lang.Character/isLetter i))](str i)))
+  (clojure.string/join (for [i text :when (and (= (clojure.string/upper-case i) (str i)) (java.lang.Character/isLetter i))](str i)))
   
   )
 
