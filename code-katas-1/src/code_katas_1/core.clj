@@ -56,7 +56,7 @@
   )
 
 (defn inter-two
-  "Escribir una funcion que reciba dos secuencias y retorne el primero de cada una,
+   "Escribir una funcion que reciba dos secuencias y retorne el primero de cada una,
    luego el segundo de cada una, luego el tercero, etc.
    Restricciones: interleave"
   [s1 s2]
