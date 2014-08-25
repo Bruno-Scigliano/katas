@@ -36,15 +36,8 @@
    y retorne el que tenga el valor mayor
    Restricciones: max y max-key"
   [& args]
-  ((fn rec [list]
-     (if (= (count list) 2)
-                   (if (< (first list) (second list))
-                                              (second list)
-                                              (first list))
-                   (if (< (first list) (second list))
-                     (rec (rest list))
-                     (rec (concat [(first list)] (rest(rest list))))     
-                 )))args)
+  (if (= (count args) 1) (first args)
+  (reduce (fn [max new] (if (< max new) new max)) 0 args) )
   )
 
 (defn split-two
