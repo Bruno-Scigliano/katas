@@ -1,11 +1,13 @@
 (ns code-katas-2.core)
 
 
-(defn unpartial
+ (defn unpartial
   "Escribir una funcion que acepte una funcion parcial con cantidad de argumentos desconocida,
    retornar una funcion equivalente de n argumentos"
   [f]
-  )
+  (defn funcionQueProbablementeNoDeberiaExistir [f args]
+    (if (fn? (f (first args))) (funcionQueProbablementeNoDeberiaExistir (f (first args)) (rest args)) (f (first args))))
+  (fn [& a](funcionQueProbablementeNoDeberiaExistir f a)))
 
 
 (defn search
