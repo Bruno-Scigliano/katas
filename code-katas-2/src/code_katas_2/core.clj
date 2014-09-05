@@ -21,26 +21,21 @@
 	)
  )
 
-
- (defn intercalar
+(defn intercalar
   "Escriba una funcion que tome un predicado de 2 argumentos, un valor y una coleccion, y
    retorne una nueva coleccion donde el valor es insertado intercalado cada dos argumentos
    que cumplan el predicado"
   [predicado valor s]
- (lazy-seq
+  (lazy-seq 
     (if (nil? (second s)) 
-		(if (=(count s)0) 
-			[] 
-			[(first s)]
-			)
-		(if (predicado (first s) (second s)) 
-			(concat [(first s)] [valor] (intercalar predicado valor (rest s)))
-			(cons (first s) (intercalar predicado valor (rest s)))
-			)
-		)
-	)
-    
-)
+      (if (=(count s)0) [] [(first s)])
+      (if (predicado (first s) (second s)) 
+        (concat [(first s)] [valor] (intercalar predicado valor (rest s)))
+        (cons (first s) (intercalar predicado valor (rest s)))
+        )
+      )
+    )   
+  )
 
 
 (defn tartamudeo
