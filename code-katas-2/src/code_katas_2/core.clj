@@ -5,16 +5,9 @@
   "Escribir una funcion que acepte una funcion parcial con cantidad de argumentos desconocida,
    retornar una funcion equivalente de n argumentos"
   [f]
-  (fn [& a](
-             (fn [f args]
-               (if (fn? (f (first args))) 
-                 (recur (f (first args)) (rest args)) 
-                 (f (first args)))
-               )f a)
-    )
-  )
-
-
+  (fn [& args](reduce (fn [g x] (g x)) f args)))
+  
+  
 (defn search
   "Dado un numero cualquiera de secuencias, cada una ya ordenada de menor a mayor, encontrar el numero
    mas chico que aparezca en todas las secuencias, las secuencias pueden ser infinitas."
