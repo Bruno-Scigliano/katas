@@ -9,16 +9,14 @@
   
   
 (defn search
-  "Dado un numero cualquiera de secuencias, cada una ya ordenada de menor a mayor, encontrar el numero
+ "Dado un numero cualquiera de secuencias, cada una ya ordenada de menor a mayor, encontrar el numero
    mas chico que aparezca en todas las secuencias, las secuencias pueden ser infinitas."
-  [& seqs]
-  (if (or (some nil? (map first seqs))(= (first (sort(map first seqs)))(last (sort(map first seqs))))) 
-	(if (some nil? (map first seqs)) 
-		() 
-		(first(first seqs))
-		)
-	(recur (for [i seqs ](if (= (reduce min (map first seqs))(first i))(drop 1 i)i)))
-	)
+ [& seqs]
+ (if (or (some nil? (map first seqs))(= (first (sort(map first seqs)))(last (sort(map first seqs))))) 
+   (if (some nil? (map first seqs)) () (first(first seqs))
+     )
+   (recur (for [i seqs ](if (= (reduce min (map first seqs))(first i))(drop 1 i)i)))
+   )
  )
 
 (defn intercalar
